@@ -40,10 +40,23 @@ module.exports = function(grunt) {
                         "assets/js/collections/cards.js",
                         "assets/js/collections/playerGames.js",
                         "assets/js/views/clock.js",
+                        "assets/js/views/missCount.js",
                         "assets/js/app.js"
                     ]
                 }
             }
+        },
+
+        react: {
+            options: {
+                extension: 'jsx',
+                ignoreMTime: false
+            },
+            app: {
+                files: {
+                    'assets/js/views': 'assets/jsx/views'
+                }
+            },
         },
 
         cssc: {
@@ -82,6 +95,10 @@ module.exports = function(grunt) {
             js: {
                 files: ['assets/js/**/*.js'],
                 tasks: ['uglify']
+            },
+            jsx: {
+                files: ['assets/jsx/**/*.jsx'],
+                tasks: ['react']
             },
             css: {
                 files: ['assets/sass/**/*.scss'],

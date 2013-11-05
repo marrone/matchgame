@@ -33,3 +33,9 @@ TODO:
 - start button in header
 - requirejs
   - text template plugin
+
+- Bonus: for getting the flipping animation to work in IE8.
+- The game is over once the player has matched all of the cards
+- During the game you will need to display a game timer with the time that has passed and the number of failed attempts. 
+- Bonus: Display a different message when the game is over based on the number of failed attempts. 
+- Extra Bonus: Display the messages using the HML5 canvas element.

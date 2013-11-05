@@ -17,8 +17,30 @@ app.Game = Backbone.Model.extend({
         };
     },
 
+    reset: function() {
+        this.set({
+            startDate: new Date(),
+            endDate: null,
+            elapsedPlayTime: 0,
+            started: false,
+            paused: false,
+            finished: false,
+            matchedAll: false,
+            missCount: 0,
+            cards: this.getRandomCards(16)
+        });
+    },
+
+    getRandomCards: function(cardCount) {
+        var faces = _.keys(app.Card.prototype.FACES),
+            deck = _.shuffle(_.flatten(faces, faces));
+        return _.map(deck, function(face) {
+            return new app.Card({face: face});
+        });
+    },
+
     initialize: function() {
-        this.cards = new app.Cards();
+        this.reset();
         this.startGame();
     },
 

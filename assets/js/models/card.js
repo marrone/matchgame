@@ -3,7 +3,6 @@ var app = app || {};
 app.Card = Backbone.Model.extend({
 
     FACES: {
-        UNKNOWN:  0,
         TOPHAT:   1,
         JOKER:    2,
         SHELLY:   3,
@@ -16,7 +15,7 @@ app.Card = Backbone.Model.extend({
 
     defaults: function() {
         return {
-            face: app.Card.prototype.FACES.UNKNOWN,
+            face: 0,
             matched: false,
             faceUp: false
         };
