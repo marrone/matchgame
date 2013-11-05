@@ -28,9 +28,10 @@ TODO:
 - options panel
   - turn background music off
   - turn sound effects off
-- save best time
+
 - requirejs
   - text template plugin
+- save best time
 - loading icon
 
 - Bonus: for getting the flipping animation to work in IE8.
