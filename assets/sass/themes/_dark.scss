@@ -18,6 +18,11 @@ $color-backface: #bfbfbf;
   @include background-image(linear-gradient( top, $color-parieswinkle 0%, $color-parieslight 100%));
 }
 
+#header > h1 {
+    position: absolute;
+    left: -9999px;
+}
+
 #main {
   background: $color-backface;
 }

@@ -2599,7 +2599,7 @@ input[type="search"]::-webkit-search-cancel-button {
   color: #c6c8c8;
   padding: 0 0 0 2rem;
   border-radius: 30px;
-  background-image: url("../img/search.svg");
+  background-image: image-url("search.svg");
   background-position: 1rem center;
   background-repeat: no-repeat;
   background-size: 16px;
@@ -3523,29 +3523,12 @@ input[type="search"]::-webkit-search-cancel-button {
   color: #fff;
 }
 
-@font-face {
-  font-family: "Source Sans";
-  src: url("../font/SourceSansPro-Regular.otf");
-}
-
-@font-face {
-  font-family: "Source Sans";
-  src: url("../font/SourceSansPro-Light.otf");
-  font-weight: 200;
-}
-
-@font-face {
-  font-family: "Source Sans";
-  src: url("../font/SourceSansPro-Semibold.otf");
-  font-weight: 600;
-}
-
 body {
   margin: 0;
   padding: 0;
   background: #4b4d4e;
   color: #000;
-  font: 16px "Source Sans", helvetica, arial, sans-serif;
+  font: 16px helvetica, arial, sans-serif;
   font-weight: 400;
 }
 
@@ -3555,8 +3538,9 @@ body {
 }
 
 .topcoat-icon--menu-stack {
-  background: url("../img/hamburger_light.svg") no-repeat;
-  background-size: cover;
+  @include background(image-url("hamburger_light.svg"));
+  background-repeat: no-repeat;
+  @include background-size(cover);
 }
 
 .quarter {

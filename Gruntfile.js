@@ -34,6 +34,12 @@ module.exports = function(grunt) {
                         "assets/js/lib/backbone.localStorage.js",
                         "assets/js/lib/react-with-addons.min.js",
                         "assets/js/lib/react.backbone.js",
+                        "assets/js/models/card.js",
+                        "assets/js/models/game.js",
+                        "assets/js/models/playerGame.js",
+                        "assets/js/collections/cards.js",
+                        "assets/js/collections/playerGames.js",
+                        "assets/js/views/clock.js",
                         "assets/js/app.js"
                     ]
                 }
@@ -64,15 +70,6 @@ module.exports = function(grunt) {
             dist: {
                 options: {
                     config: 'config.rb'
-                }
-            }
-        },
-
-        sass: {
-            build: {
-                files: {
-                    'build/css/app.css': 'assets/sass/app.scss',
-                    'build/css/ie.css': 'assets/sass/ie.scss'
                 }
             }
         },
