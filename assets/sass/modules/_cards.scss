@@ -1,0 +1,15 @@
+$num-card-cols: 4;
+
+.cards { 
+  width: ($num-card-cols * $card-width) + ($num-card-cols * 2px);
+}
+
+.cards .card {
+  float: left;
+}
+
+@media only screen and (min-width: 768px) {
+  .cards { 
+    width: ($num-card-cols * $large-card-width) + ($num-card-cols * 2px);
+  }
+}

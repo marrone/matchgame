@@ -1,0 +1,80 @@
+
+// Quick way to provide CSS animations 
+@mixin animate($name:all, $timing: 0.5s) {
+  -webkit-transition: $name $timing;
+  -moz-transition: $name $timing;
+  -ms-transition: $name $timing;
+  -o-transition: $name $timing;
+}
+
+/* keyframe animations */
+@mixin keyframes( $animationName ) {
+    @-webkit-keyframes $animationName {
+        @content;
+    }
+    @-moz-keyframes $animationName {
+        @content;
+    }
+    @-o-keyframes $animationName {
+        @content;
+    }
+    @keyframes $animationName {
+        @content;
+    }
+}
+@mixin animation($animationName, $duration: 0.3s, $func: ease-in-out, $infinite: false) {
+    @if $infinite {
+        -webkit-animation: $animationName $duration infinite $func;
+        -moz-animation: $animationName $duration infinite $func;
+        -ms-animation: $animationName $duration infinite $func;
+        -o-animation: $animationName $duration infinite $func;
+        animation: $animationName $duration infinite $func;
+    }
+    @else {
+        -webkit-animation: $animationName $duration $func;
+        -moz-animation: $animationName $duration $func;
+        -ms-animation: $animationName $duration $func;
+        -o-animation: $animationName $duration $func;
+        animation: $animationName $duration $func;
+    }
+}
+
+@mixin loading-spinner($size) {
+    background-color: transparent;
+    border: 2px solid rgba(0, 0, 0, .4);
+    border-top-color: transparent;
+    border-left-color: transparent;
+    border-radius: 150px;
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    margin-bottom: 3px;
+    vertical-align: middle;
+    @include animation(spinner, .5s, linear, true);
+
+    @if $size == "mini" {
+        border-width: 2px;
+        width: 4px;
+        height: 4px;
+    }
+    @else if $size == "small" {
+        border-width: 2px;
+        width: 8px;
+        height: 8px;
+    }
+    @else if $size == "large" {
+        border-width: 3px;
+        width: 22px;
+        height: 22px;
+    }
+    @else if $size == "extra-large" {
+        border-width: 4px;
+        width: 32px;
+        height: 32px;
+    }
+}
+@include keyframes(spinner) {
+  0% { @include rotate(0deg); }
+  100% { @include rotate(360deg); }
+}
+

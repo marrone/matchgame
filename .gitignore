@@ -1,0 +1,9 @@
+# Ignore vim swaps
+*.swp
+*.swo
+
+# sass
+.sass-cache
+
+# CTags
+tags
