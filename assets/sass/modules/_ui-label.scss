@@ -3,3 +3,9 @@
   font-size: 22px;
 }
 
+@media #{$bp-large} {
+  .ui-label {
+    font-size: 44px;
+  }
+}
+

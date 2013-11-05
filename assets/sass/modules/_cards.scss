@@ -8,7 +8,7 @@ $num-card-cols: 4;
   float: left;
 }
 
-@media only screen and (min-width: 768px) {
+@media #{$bp-large} {
   .cards { 
     width: ($num-card-cols * $large-card-width) + ($num-card-cols * 2px);
   }

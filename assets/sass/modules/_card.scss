@@ -45,7 +45,7 @@
   @include rotateY(180deg); /* hide the back side */
 }
 
-@media only screen and (min-width: 768px) {
+@media #{$bp-large} {
   .card-face, .card-back { @include background-size(1350px auto); }
   .card, .card-face, .card-back { width: $large-card-width; height: $large-card-height; }
   .card-face-1 { background-position: -$large-card-width 0; }
