@@ -32,10 +32,11 @@ app.Game = Backbone.Model.extend({
     },
 
     getRandomCards: function(cardCount) {
-        var faces = _.keys(app.Card.prototype.FACES),
-            deck = _.shuffle(_.flatten(faces, faces));
+        var FACES = app.Card.prototype.FACES,
+            faceVals = _.keys(FACES),
+            deck = _.shuffle(faceVals.concat(faceVals));
         return _.map(deck, function(face) {
-            return new app.Card({face: face});
+            return new app.Card({face: FACES[face]});
         });
     },
 
