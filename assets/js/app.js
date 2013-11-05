@@ -10,7 +10,8 @@ $(function() {
     var game = new app.Game();
     var clockView = new app.Views.Clock({model: game});
     var missView = new app.Views.MissCount({model: game});
-    var cardsView = new app.Views.Cards({cards: game.get("cards")});
+    var cardsView = new app.Views.Cards({model: game.get("cards")});
+
     React.renderComponent(clockView, $(".game-clock").get(0));
     React.renderComponent(missView, $(".game-misscount").get(0));
     React.renderComponent(cardsView, $("#main").get(0));
@@ -18,6 +19,7 @@ $(function() {
     // debug
     window.game = game;
     window.clockView = clockView;
+    window.cardsView = cardsView;
 });
 
 /*

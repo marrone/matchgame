@@ -13,7 +13,8 @@ var CardView = React.createBackboneClass({
     render: function() {
         return (
             React.DOM.li(null, 
-                React.DOM.div( {className:"card" + (this.getModel().get('faceUp') ? ' face-up' : ''), 'data-face':"" + this.getModel().get('face'), onClick:this.onClick}, 
+                React.DOM.div( {className:"card" + (this.getModel().get('faceUp') ? ' face-up' : '') + (this.getModel().get("matched") ? ' matched' : ''), 
+                    'data-face':"" + this.getModel().get('face'), onClick:this.onClick}, 
                     React.DOM.div( {className:"card-back"}),
                     React.DOM.div( {className:"card-face card-face-" + this.getModel().get('face')})
                 )
