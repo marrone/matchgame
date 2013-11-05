@@ -12,11 +12,13 @@ $(function() {
         React.renderComponent(statusView, $(".game-status").get(0));
         React.renderComponent(navView, $("#nav").get(0));
         React.renderComponent(cardsView, $("#main").get(0));
+        game.once("change:started", function() {
+            $("#main").removeClass("loading");
+        });
 
         game.startGame();
         return game;
     }
     Backbone.on("newgame", createGame);
-
     var game = createGame();
 });

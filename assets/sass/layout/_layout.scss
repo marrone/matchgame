@@ -34,6 +34,8 @@ $media-layout: 10 lt-ie9;
     @include span-columns(8, 10);
     text-align: center;
     @include box-shadow(4px 0px 4px -2px rgba(0,0,0,0.2));
+    min-height: 200px;
+    position: relative;
   }
 
   #sidebar {

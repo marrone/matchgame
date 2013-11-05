@@ -1,0 +1,9 @@
+.loading:after {
+    content: ' ';
+    @include loading-spinner("large");
+    position: absolute;
+    top: 50%;
+    margin-top: -22px;
+    left: 50%;
+    margin-left: -11px;
+}

@@ -32,7 +32,6 @@ TODO:
 - requirejs
   - text template plugin
 - save best time
-- loading icon
 
 - Bonus: for getting the flipping animation to work in IE8.
 - Extra Bonus: Display the messages using the HTML5 canvas element.
