@@ -1,7 +1,7 @@
 var app = app || {};
 app.Views = app.Views || {};
 
-app.Views.MissCount = React.createBackboneClass({
+app.Views.GameStatus = React.createBackboneClass({
 
     changeOptions: "change:missCount change:matchedAll change:finished",
 

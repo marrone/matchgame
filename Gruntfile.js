@@ -40,7 +40,10 @@ module.exports = function(grunt) {
                         "assets/js/collections/cards.js",
                         "assets/js/collections/playerGames.js",
                         "assets/js/views/clock.js",
-                        "assets/js/views/missCount.js",
+                        "assets/js/views/gameStatus.js",
+                        "assets/js/views/nav.js",
+                        "assets/js/views/card.js",
+                        "assets/js/views/cards.js",
                         "assets/js/app.js"
                     ]
                 }
@@ -62,9 +65,9 @@ module.exports = function(grunt) {
         cssc: {
             build: {
                 options: {
-                    consolidateViaDeclarations: true,
-                    consolidateViaSelectors:    true,
-                    consolidateMediaQueries:    true
+                    consolidateViaDeclarations: false,
+                    consolidateViaSelectors:    false,
+                    consolidateMediaQueries:    false
                 },
                 files: {
                     'build/css/app.css': 'build/css/app.css'

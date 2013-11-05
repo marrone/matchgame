@@ -1,0 +1,26 @@
+#nav {
+    position: relative;
+}
+
+#nav .newgame-btn, #nav .pause-btn {
+    position: absolute;
+    bottom: 0;
+}
+
+@media #{$bp-small} {
+    #nav .newgame-btn, #nav .pause-btn {
+        bottom: -75px;
+    }
+}
+
+#nav .newgame-btn {
+    left: 10px;
+}
+
+#nav .pause-btn {
+    display: none;
+    right: 10px;
+}
+#nav .active .pause-btn  {
+    display: block;
+}

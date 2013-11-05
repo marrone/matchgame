@@ -30,11 +30,9 @@ TODO:
   - turn sound effects off
 - tabbed footer for instructions
 - save best time
-- start button in header
 - requirejs
   - text template plugin
 - loading icon
 
 - Bonus: for getting the flipping animation to work in IE8.
-- The game is over once the player has matched all of the cards
 - Extra Bonus: Display the messages using the HTML5 canvas element.

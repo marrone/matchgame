@@ -13,7 +13,7 @@ app.Game = Backbone.Model.extend({
             finished: false,
             matchedAll: false,
             missCount: 0,
-            maxMissesAllowed: 100
+            maxMissesAllowed: 10
         };
     },
 
@@ -115,7 +115,6 @@ app.Game = Backbone.Model.extend({
 
     initialize: function() {
         this.reset();
-        this.startGame();
     },
 
     hasStarted: function() {
