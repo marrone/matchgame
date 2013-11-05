@@ -28,7 +28,6 @@ TODO:
 - options panel
   - turn background music off
   - turn sound effects off
-- tabbed footer for instructions
 - save best time
 - requirejs
   - text template plugin

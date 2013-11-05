@@ -12,6 +12,13 @@
     <link rel="stylesheet" href="build/css/app.css">
     <!--[if IE]><link refl="stylesheet" href="build/css/ie.css"/><![endif]-->
     <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
+    <link rel="icon" href="favicon.ico" type="image/x-icon" />
+    <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
+    <link class="touch-icon" rel="apple-touch-icon" href="build/img/touch-icon-57x57.png"/> 
+    <link class="touch-icon" rel="apple-touch-icon-precomposed" href="build/img/touch-icon-57x57.png"/>
+    <link class="touch-icon" rel="apple-touch-icon-precomposed" sizes="72x72" href="build/img/touch-icon-72x72.png"/>
+    <link class="touch-icon" rel="apple-touch-icon-precomposed" sizes="114x114" href="build/img/touch-icon-114x114.png"/>
+    <link class="touch-icon" rel="apple-touch-icon-precomposed" sizes="152x152" href="build/image/touch-icon-152x152.png"/>
     <meta http-equiv="cleartype" content="on">
     <meta name="format-detection" content="telephone=no"/>
 </head>
@@ -22,32 +29,22 @@
     <header id="header">
         <h1>Memory Game</h1>
         <h2 class="ui-label game-clock">Time: 0:00</h2>
-        <h2 class="ui-label game-misscount">Misses: 0</h2>
+        <h2 class="ui-label game-status">Misses: 0</h2>
+        <nav id="nav"> </nav>
     </header>
 
-    <section id="main">
+    <section id="main" class="loading">
+        Loading...
     </section>
     <aside id="sidebar">
         <p>Sidebar - 300px wide</p>
     </aside>
 
     <footer id="footer">
-        <p>Footer - 100px tall, Background gradient</p>
-
-        <h1>Game Directions</h1>
-        <ul>
-            <li>Using the sprite sheet provided, create a CSS stylesheet that can display our memory cards by adding classes to html elements.
-                The first image in the sprite should be used as the back of the card.</li>
-
-            <li>Create your game engine! Arrange the cards in a 4x4 grid face down.</li>
-            <li>When a card is selected it should smoothly flip around to reveal the face of the card.
-                <strong>Bonus:</strong> for getting the flipping animation to work in IE8.  </li>
-            <li>The game is over once the player has matched all of the cards.  </li>
-
-            <li>During the game you will need to display a game timer with the time that has passed and the number of failed attempts. 
-                <strong>Bonus:</strong> Display a different message when the game is over based on the number of failed attempts. 
-                <strong>Extra Bonus:</strong> Display the messages using the HML5 canvas element.  </li>
-        </ul>
+        <strong>Instructions:</strong>
+        <p>Flip two cards over, your goal is to find matching faces.</p>
+        <p>The game is over once you hit the max allowed number of mismatched flips.</p>
+        <p>Try to match all the cards in as fast a time as possible.</p>
     </footer>
 </section>
 
@@ -64,7 +61,8 @@
 <script src="assets/js/collections/cards.js"></script>
 <script src="assets/js/collections/playerGames.js"></script>
 <script src="assets/js/views/clock.js"></script>
-<script src="assets/js/views/missCount.js"></script>
+<script src="assets/js/views/gameStatus.js"></script>
+<script src="assets/js/views/nav.js"></script>
 <script src="assets/js/views/card.js"></script>
 <script src="assets/js/views/cards.js"></script>
 <script src="assets/js/app.js"></script>

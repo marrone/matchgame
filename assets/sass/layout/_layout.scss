@@ -44,8 +44,10 @@ $media-layout: 10 lt-ie9;
   #footer {
     clear: both;
     display: block;
-    height: 100px;
+    height: 80px;
     @include box-shadow(inset 0 4px 4px rgba(0,0,0,0.2));
+    text-align: left;
+    padding: 10px;
   }
 
   @include at-breakpoint(8 $bp-small-width) {
@@ -54,5 +56,6 @@ $media-layout: 10 lt-ie9;
 
     #main { width: 100%; margin: 0; }
     #sidebar { display: none; }
+    #footer { font-size: 12px; }
   }
 }

@@ -6,6 +6,7 @@ $experimental-support-for-svg: true;
 
 @import "base/variables";
 @import "base/animations";
+@import "base/normalize";
 @import "themes/topcoat-mobile-dark";
 @import "themes/dark";
 @import "layout/layout";
