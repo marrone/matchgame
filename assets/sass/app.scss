@@ -6,9 +6,9 @@ $experimental-support-for-svg: true;
 
 @import "base/variables";
 @import "base/animations";
-@import "layout/layout";
 @import "themes/topcoat-mobile-dark";
 @import "themes/dark";
+@import "layout/layout";
 @import "modules/ui-label";
 @import "modules/card";
 @import "modules/cards";

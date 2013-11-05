@@ -1,15 +1,16 @@
 $num-card-cols: 4;
 
 .cards { 
-  width: ($num-card-cols * $card-width) + ($num-card-cols * 2px);
+  width: ($num-card-cols * $large-card-width) + ($num-card-cols * 2px);
+  margin: auto;
 }
 
 .cards .card {
   float: left;
 }
 
-@media #{$bp-large} {
+@media #{$bp-small} {
   .cards { 
-    width: ($num-card-cols * $large-card-width) + ($num-card-cols * 2px);
+    width: ($num-card-cols * $small-card-width) + ($num-card-cols * 2px);
   }
 }

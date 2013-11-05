@@ -72,7 +72,7 @@ module.exports = function(grunt) {
             build: {
                 files: {
                     'build/css/app.css': 'assets/sass/app.scss',
-                    'build/css/ie9.css': 'assets/sass/ie9.scss'
+                    'build/css/ie.css': 'assets/sass/ie.scss'
                 }
             }
         },

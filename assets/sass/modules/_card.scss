@@ -2,8 +2,8 @@
   /* How pronounced should the 3D effects be */
   @include perspective(800px);
   @include background(radial-gradient(#e0e0e0, #aaa));
-  width:$card-width;
-  height:$card-height;
+  width:$large-card-width;
+  height:$large-card-height;
   margin:0 auto;
   position:relative;
 }
@@ -11,14 +11,14 @@
 .card-face, .card-back {
   @include transform-style(preserve-3d);
   @include backface-visibility(hidden); /* Separate divs for the front and back of the cards. Flipping displays the opposite side */
-  width:$card-width;
-  height:$card-height;
+  width:$large-card-width;
+  height:$large-card-height;
   position:absolute;
   top: 0;
   left: 0;
   @include animate(all, 0.8s);
   @include background(image-url("regularshow-sprite.jpg"));
-  @include background-size(675px auto);
+  @include background-size(1350px auto);
   background-repeat: no-repeat;
 }
 
@@ -29,14 +29,14 @@
 .card-face {
   @include rotateY(180deg); 
 }
-.card-face-1 { background-position: -$card-width 0; }
-.card-face-2 { background-position: -2 * $card-width 0; }
-.card-face-3 { background-position: -3 * $card-width 0; }
-.card-face-4 { background-position: -4 * $card-width 0; }
-.card-face-5 { background-position: -5 * $card-width 0; }
-.card-face-6 { background-position: -6 * $card-width 0; }
-.card-face-7 { background-position: -7 * $card-width 0; }
-.card-face-8 { background-position: -8 * $card-width 0; }
+.card-face-1 { background-position: -$large-card-width 0; }
+.card-face-2 { background-position: -2 * $large-card-width 0; }
+.card-face-3 { background-position: -3 * $large-card-width 0; }
+.card-face-4 { background-position: -4 * $large-card-width 0; }
+.card-face-5 { background-position: -5 * $large-card-width 0; }
+.card-face-6 { background-position: -6 * $large-card-width 0; }
+.card-face-7 { background-position: -7 * $large-card-width 0; }
+.card-face-8 { background-position: -8 * $large-card-width 0; }
 
 .card.face-up .card-face {
   @include rotateY(360deg); /* show the face side */
@@ -45,15 +45,15 @@
   @include rotateY(180deg); /* hide the back side */
 }
 
-@media #{$bp-large} {
-  .card-face, .card-back { @include background-size(1350px auto); }
-  .card, .card-face, .card-back { width: $large-card-width; height: $large-card-height; }
-  .card-face-1 { background-position: -$large-card-width 0; }
-  .card-face-2 { background-position: -2 * $large-card-width 0; }
-  .card-face-3 { background-position: -3 * $large-card-width 0; }
-  .card-face-4 { background-position: -4 * $large-card-width 0; }
-  .card-face-5 { background-position: -5 * $large-card-width 0; }
-  .card-face-6 { background-position: -6 * $large-card-width 0; }
-  .card-face-7 { background-position: -7 * $large-card-width 0; }
-  .card-face-8 { background-position: -8 * $large-card-width 0; }
+@media #{$bp-small} {
+  .card-face, .card-back { @include background-size(675px auto); }
+  .card, .card-face, .card-back { width: $small-card-width; height: $small-card-height; }
+  .card-face-1 { background-position: -$small-card-width 0; }
+  .card-face-2 { background-position: -2 * $small-card-width 0; }
+  .card-face-3 { background-position: -3 * $small-card-width 0; }
+  .card-face-4 { background-position: -4 * $small-card-width 0; }
+  .card-face-5 { background-position: -5 * $small-card-width 0; }
+  .card-face-6 { background-position: -6 * $small-card-width 0; }
+  .card-face-7 { background-position: -7 * $small-card-width 0; }
+  .card-face-8 { background-position: -8 * $small-card-width 0; }
 }
