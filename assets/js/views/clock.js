@@ -20,8 +20,9 @@ app.Views.Clock = React.createBackboneClass({
             return "0:00";
         }
 
-        var hours = parseInt(elapsedSeconds / 3600, 10),
-            minutes = parseInt(elapsedSeconds / 60, 10),
+        var HOURSECONDS = 3600,
+            hours = parseInt(elapsedSeconds / HOURSECONDS, 10),
+            minutes = parseInt(elapsedSeconds % HOURSECONDS / 60, 10),
             seconds = elapsedSeconds % 60,
             pad = function(n) { return (n < 10 ? "0" : "") + n; };
         return (hours >= 1 ? pad(hours) + ":" + pad(minutes) : minutes) + ":" + pad(seconds);
