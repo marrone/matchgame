@@ -9,7 +9,6 @@
     <link href="http://fonts.googleapis.com/css?family=Sancreek" rel="stylesheet" type="text/css"/>
     <link rel="stylesheet" href="build/css/app.css">
     <!--[if IE]><link refl="stylesheet" href="build/css/ie.css"/><![endif]-->
-    <!--[if lt IE 9]><script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script><![endif]-->
     <link rel="icon" href="favicon.ico" type="image/x-icon" />
     <link rel="shortcut icon" href="favicon.ico" type="image/x-icon" /> 
     <link class="touch-icon" rel="apple-touch-icon" href="build/img/touch-icon-57x57.png"/> 
@@ -20,6 +19,7 @@
     <meta http-equiv="cleartype" content="on">
     <meta name="format-detection" content="telephone=no"/>
     <script type="text/javascript" src="build/js/modernizr.custom.js"></script>
+    <!--[if lt IE 9]><script src="build/js/excanvas.js"></script><![endif]-->
 </head>
 
 <body>
@@ -29,6 +29,8 @@
         <h1>Memory Game</h1>
         <h2 class="ui-label game-clock">Time: 0:00</h2>
         <h2 class="ui-label game-status">Misses: 0</h2>
+        <canvas id="game-best" class="game-best" width="300" height="26"></canvas>
+        <h3 class="ui-label ui-label-small game-best game-best-fallback ellipsis" id="game-best-fallback"></h3>
         <nav id="nav"> </nav>
     </header>
 
@@ -61,6 +63,8 @@
 <script src="assets/js/lib/es5-sham.min.js"></script>
 <script src="assets/js/lib/react.min.js"></script>
 <script src="assets/js/lib/react.backbone.js"></script>
+<script src="assets/js/widgets/clock.js"></script>
+<script src="assets/js/widgets/canvasWriter.js"></script>
 <script src="assets/js/models/card.js"></script>
 <script src="assets/js/models/game.js"></script>
 <script src="assets/js/models/playerGame.js"></script>
@@ -71,6 +75,7 @@
 <script src="assets/js/views/nav.js"></script>
 <script src="assets/js/views/card.js"></script>
 <script src="assets/js/views/cards.js"></script>
+<script src="assets/js/views/topScore.js"></script>
 <script src="assets/js/views/topScoreModal.js"></script>
 <script src="assets/js/app.js"></script>
 

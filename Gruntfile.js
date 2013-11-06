@@ -36,6 +36,8 @@ module.exports = function(grunt) {
                         "assets/js/lib/es5-sham.min.js",
                         "assets/js/lib/react.min.js",
                         "assets/js/lib/react.backbone.js",
+                        "assets/js/widgets/clock.js",
+                        "assets/js/widgets/canvasWriter.js",
                         "assets/js/models/card.js",
                         "assets/js/models/game.js",
                         "assets/js/models/playerGame.js",
@@ -46,6 +48,7 @@ module.exports = function(grunt) {
                         "assets/js/views/nav.js",
                         "assets/js/views/card.js",
                         "assets/js/views/cards.js",
+                        "assets/js/views/topScore.js",
                         "assets/js/views/topScoreModal.js",
                         "assets/js/app.js"
                     ]

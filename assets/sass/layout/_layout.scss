@@ -28,6 +28,7 @@ $media-layout: 10 lt-ie9;
     display: block;
     @include box-shadow(0 4px 4px rgba(0,0,0,0.2));
     margin: 0 0 10px 0;
+    position: relative;
   }
 
   #main {

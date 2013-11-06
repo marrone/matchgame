@@ -4,9 +4,15 @@
   color: $color-chinchilla;
 }
 
-@media #{$bp-large} {
-  .ui-label {
-    font-size: 44px;
-  }
+.ui-label-small {
+    font-size: 12px;
 }
 
+@media #{$bp-large} {
+    .ui-label {
+        font-size: 44px;
+    }
+    .ui-label-small {
+        font-size: 16px;
+    }
+}

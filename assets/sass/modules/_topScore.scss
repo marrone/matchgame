@@ -1,0 +1,24 @@
+.game-best {
+    text-align: center;
+    height: 26px;
+    width: 300px;
+    margin: auto;
+    display: inline-block;
+
+    position: absolute;
+    bottom: 5px;
+    left: 50%;
+    margin-left: -150px;
+
+    font-size: 14px;
+}
+
+@media #{$bp-small} {
+    .game-best {
+        bottom: 58px;
+    }
+}
+
+.game-best-fallback {
+    display: none;
+}
