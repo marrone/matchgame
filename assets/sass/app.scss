@@ -14,5 +14,7 @@ $experimental-support-for-svg: true;
 @import "modules/nav";
 @import "modules/card";
 @import "modules/cards";
+@import "modules/modals";
+@import "modules/topScoreModal";
 @import "state/ellipsis";
 @import "state/loading";

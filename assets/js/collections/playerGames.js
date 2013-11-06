@@ -6,11 +6,17 @@ app.PlayerGames = Backbone.Collection.extend({
 
     localStorage: new Backbone.LocalStorage("memorygame-backbone"),
 
-    comparator: function(playerGame) {
-        if(!playerGame.get("game")) {
+    comparator: function(playerGameA, playerGameB) {
+        var elapsedTimeA = playerGameA.get("elapsedPlayTime") || 0,
+            elapsedTimeB = playerGameB.get("elapsedPlayTime") || 0;
+
+        if(elapsedTimeA <= 0 && elapsedTimeB <= 0 || elapsedTimeA == elapsedTimeB) {
             return 0;
         }
-        return playerGame.get("game").getElapsedPlayTime();
+        else if(elapsedTimeA < elapsedTimeB) {
+            return -1;
+        }
+        return 1;
     }
 
 });

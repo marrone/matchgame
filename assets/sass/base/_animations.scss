@@ -5,6 +5,7 @@
   -moz-transition: $name $timing;
   -ms-transition: $name $timing;
   -o-transition: $name $timing;
+  transition: $name $timing;
 }
 
 /* keyframe animations */

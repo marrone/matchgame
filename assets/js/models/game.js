@@ -13,7 +13,7 @@ app.Game = Backbone.Model.extend({
             finished: false,
             matchedAll: false,
             missCount: 0,
-            maxMissesAllowed: 10
+            maxMissesAllowed: 100
         };
     },
 
@@ -141,7 +141,12 @@ app.Game = Backbone.Model.extend({
     },
 
     tick: function() {
-        this.set({elapsedPlayTime: this.get("elapsedPlayTime") + 1});
+        if(this.get("finished")) {
+            this.clearClockInterval();
+        }
+        else {
+            this.set({elapsedPlayTime: this.get("elapsedPlayTime") + 1});
+        }
     },
 
     isPaused: function() {

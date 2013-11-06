@@ -44,6 +44,7 @@ module.exports = function(grunt) {
                         "assets/js/views/nav.js",
                         "assets/js/views/card.js",
                         "assets/js/views/cards.js",
+                        "assets/js/views/topScoreModal.js",
                         "assets/js/app.js"
                     ]
                 }
