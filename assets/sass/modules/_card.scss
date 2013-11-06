@@ -38,6 +38,14 @@
 .card-face-7 { background-position: -7 * $large-card-width 0; }
 .card-face-8 { background-position: -8 * $large-card-width 0; }
 
+/* fallback display for browsers that do not support transforms 3d */
+.no-csstransforms3d .card .card-face {
+    display: none;
+}
+.no-csstransforms3d .card.face-up .card-face {
+    display: block;
+}
+
 .card.face-up .card-face {
   @include rotateY(360deg); /* show the face side */
 }
@@ -52,6 +60,10 @@
 }
 .card.matched {
     @include animation(cardmatch, .5s, linear, false);
+}
+/* falback for browsers that don't support animations, just make it partially transparent */
+.no-cssanimations .card.matched {
+    @include opacity(0.5);
 }
 
 @media #{$bp-small} {

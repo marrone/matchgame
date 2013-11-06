@@ -5,6 +5,10 @@ $num-card-cols: 4;
   margin: auto;
 }
 
+.cards li {
+    float: left;
+}
+
 .cards .card {
   float: left;
 }

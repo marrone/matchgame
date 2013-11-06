@@ -22,17 +22,28 @@ perspective effects (not including the modals and the overlay).
 }
 
 .md-modal {
+    position: absolute;
 	position: fixed;
-	top: 50%;
-	left: 50%;
-	width: 50%;
+    left: 0;
+    top: 0;
+    width: 100%;
 	max-width: 630px;
 	min-width: 320px;
 	height: auto;
 	z-index: 2000;
 	visibility: hidden;
+}
+.csstransforms3d .md-modal {
+	top: 50%;
+	left: 50%;
+	width: 50%;
     @include backface-visibility(hidden); 
     @include translate(-50%, -50%);
+}
+.no-csstransforms3d .md-modal {
+    width: 100%;
+    max-width: 100%;
+    left: 0;
 }
 
 .md-show {
@@ -107,18 +118,18 @@ perspective effects (not including the modals and the overlay).
 /* Individual modal styles with animations/transitions */
 
 /* Effect 7:  slide and stick to top */
-.md-effect-7{
+.csstransforms3d .md-effect-7{
 	top: 0;
     @include translateX(-50%);
 }
 
-.md-effect-7 .md-content {
+.csstransforms3d .md-effect-7 .md-content {
     @include translateY(-200%);
     @include animate(all, 0.3s);
 	@include opacity(0);
 }
 
-.md-show.md-effect-7 .md-content {
+.csstransforms3d .md-show.md-effect-7 .md-content {
     @include translateY(0%);
 	@include border-radius(0 0 3px 3px);
 	@include opacity(1);

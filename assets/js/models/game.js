@@ -13,7 +13,7 @@ app.Game = Backbone.Model.extend({
             finished: false,
             matchedAll: false,
             missCount: 0,
-            maxMissesAllowed: 100
+            maxMissesAllowed: 10
         };
     },
 

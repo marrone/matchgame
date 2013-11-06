@@ -28,10 +28,11 @@ TODO:
 - options panel
   - turn background music off
   - turn sound effects off
-
 - requirejs
   - text template plugin
-- save best time
 
+- best time in the header
+
+- IE9: card flip animation
 - Bonus: for getting the flipping animation to work in IE8.
 - Extra Bonus: Display the messages using the HTML5 canvas element.

@@ -35,7 +35,7 @@ var TopScoreModalView = React.createBackboneClass({
                             <input onChange={this.onNameChange} type="text" className="topcoat-text-input--large" value={this.getModel() && this.getModel().get("name")} />
                             <button className="topcoat-button--cta"> Save </button>
                         </form>
-                        <button onClick={this.onCancel} className="md-close topcoat-button">Close</button>
+                        <a href="#" onClick={this.onCancel} className="md-close topcoat-button">Close</a>
                     </div>
                 </div>
             </div>
