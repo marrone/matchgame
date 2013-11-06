@@ -6,7 +6,7 @@
     display: inline-block;
 
     position: absolute;
-    bottom: 5px;
+    top: 120px;
     left: 50%;
     margin-left: -150px;
 
@@ -15,7 +15,7 @@
 
 @media #{$bp-small} {
     .game-best {
-        bottom: 58px;
+        top: 62px;
     }
 }
 

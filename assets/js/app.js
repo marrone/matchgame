@@ -62,7 +62,4 @@ $(function() {
     }
     Backbone.on("newgame", createGame);
     var game = createGame();
-    setTimeout(function() {
-        game.set({matchedAll: true, finished: true, elapsedPlayTime: 10});
-    }, 1500);
 });

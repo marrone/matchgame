@@ -18,11 +18,8 @@ Building:
 Uses Gruntjs to watch the directory for changes
 $ grunt watch
 
-
 TODO:
 -------
 - requirejs
-  - text template plugin
-
 - IE9: card flip animation
 - Bonus: for getting the flipping animation to work in IE8.
