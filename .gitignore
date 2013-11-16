@@ -6,6 +6,7 @@
 .sass-cache
 node_modules
 doc
+reports/
 
 # CTags
 tags

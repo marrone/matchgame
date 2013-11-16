@@ -37,6 +37,22 @@ app.Widgets.CanvasWriter = function() {
             ctx.textAlign = config.textAlign;
         },
 
+        getCanvasEl: function(canvasEl) {
+			canvasEl = $(canvasEl).get(0);
+			if(canvasEl && this.canvasSupported(canvasEl)) {
+                return canvasEl;
+			}
+        },
+
+        initCtx: function(canvasEl, opts) {
+            var canvasEl = this.getCanvasEl(canvasEl);
+            if(canvasEl) { 
+                var ctx = canvasEl.getContext('2d');
+                this.setContextStyles(ctx, opts);
+                return ctx;
+            }
+        },
+
         /**
         * Draw text onto a canvas element
         *
@@ -47,26 +63,25 @@ app.Widgets.CanvasWriter = function() {
         * @param object opts 
         */
         drawText: function(canvasEl, text, x, y, opts) {
-			canvasEl = $(canvasEl).get(0);
-			if(!canvasEl || !this.canvasSupported(canvasEl)) {
-				return false;
-			}
-            var ctx = canvasEl.getContext('2d');
-            this.setContextStyles(ctx, opts);
-            ctx.fillText(text, x, y);
+            var ctx = this.initCtx(canvasEl, opts);
+            if(ctx) { 
+                ctx.fillText(text, x, y);
+            }
         },
 
         drawTextCentered: function(canvasEl, text, opts) {
-			canvasEl = $(canvasEl).get(0);
-			if(!canvasEl || !this.canvasSupported(canvasEl)) {
-				return false;
-			}
+            var ctx = this.initCtx(canvasEl, opts);
+            if(!ctx) {
+                return;
+            }
 
-            var ctx = canvasEl.getContext('2d');
-            this.setContextStyles(ctx, opts);
+            var canvasWidth = parseInt($(canvasEl).width() / 2, 10),
+                textWidth = ctx.measureText(text).width / 2,
+                offsetX = (opts && opts.offset && opts.offset.x || 0),
+                offsetY = (opts && opts.offset && opts.offset.y || 0),
+                x = canvasWidth - textWidth + offsetX,
+                y = 0 + offsetY;
 
-            var x = parseInt($(canvasEl).width() / 2, 10) - ctx.measureText(text).width / 2 + (opts && opts.offset && opts.offset.x || 0),
-                y = 0 + (opts && opts.offset && opts.offset.y || 0);
             return this.drawText(canvasEl, text, x, y, opts);
         }
 

@@ -37,29 +37,49 @@ app.Game = Backbone.Model.extend({
         }
     },
 
+    handleGameOver: function() {
+        if(this.get("missCount") >= this.get("maxMissesAllowed")) {
+            // game over
+            this.clearClockInterval();
+            this.set({finished: true, endDate: (new Date()).getTime()});
+            return true;
+        }
+        return false;
+    },
+
+    flipPendingCardsFaceDown: function() { 
+        // flip cards back over and let them take another turn
+        _.each([cardA, cardB], function(card) {
+            if(this.pendingFlipOver[card.cid]) {
+                clearTimeout(this.pendingFlipOver[card.cid]);
+            }
+            this.pendingFlipOver[card.cid] = setTimeout(_.bind(this.flipOver, this, card), 1000);
+        }, this);
+    },
+
     handleMismatch: function(cardA, cardB) { 
         this.set({missCount: this.get("missCount") + 1});
         this.trigger("card:mismatch", cardA, cardB);
         this.currentCard = null;
-        // game over
-        if(this.get("missCount") >= this.get("maxMissesAllowed")) {
-            this.clearClockInterval();
-            this.set({finished: true, endDate: (new Date()).getTime()});
+        if(!this.handleGameOver()) { 
+            this.flipPendingCardsFaceDown();
         }
-        // flip cards back over and let them take another turn
+    },
+
+    attemptMatch: function(cardA, cardB) {
+        // matched
+        if(cardA.matchesFace(cardB)) { 
+            this.handleMatch(cardA, cardB);
+        }
+        // mismatched
         else {
-            _.each([cardA, cardB], function(card) {
-                if(this.pendingFlipOver[card.cid]) {
-                    clearTimeout(this.pendingFlipOver[card.cid]);
-                }
-                this.pendingFlipOver[card.cid] = setTimeout(_.bind(this.flipOver, this, card), 1000);
-            }, this);
+            this.handleMismatch(cardA, cardB);
         }
     },
 
     onCardFlip: function(card, opts) {
         // only handle when a card is being turned face up
-        if(!card.get("faceUp")) {
+        if(card.isFaceDown()) { 
             return;
         }
 
@@ -74,14 +94,7 @@ app.Game = Backbone.Model.extend({
             return;
         }
 
-        // matched
-        if(this.currentCard.get("face") == card.get("face")) {
-            this.handleMatch(this.currentCard, card);
-        }
-        // mismatched
-        else {
-            this.handleMismatch(this.currentCard, card);
-        }
+        this.attemptMatch(this.currentCard, card);
     },
 
     reset: function() {

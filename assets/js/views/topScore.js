@@ -5,17 +5,23 @@ app.Views.TopScore = Backbone.View.extend({
 
     template: _.template('<%- title %>'),
 
+    shortenName: function() {
+        var maxLen = 20,
+            truncString = "...";
+
+        if(name && name.length > maxLen) {
+            name = $.trim(name).substring(0, maxLen - truncString.length) + truncString;
+        }
+
+        return name;
+    },
+
     getMessage: function() {
         if(!this.model || !this.model.get("elapsedPlayTime")) {
             return "No Top Time Yet";
         }
         var clock = new app.Widgets.Clock(this.model.get("elapsedPlayTime")),
-            name = this.model.get("name"),
-            maxLen = 20,
-            truncString = "...";
-        if(name && name.length > maxLen) {
-            name = $.trim(name).substring(0, maxLen - truncString.length) + truncString;
-        }
+            name = this.shortenName(this.model.get("name"));
         return "Top: " + clock + " by " + name;
     },
 

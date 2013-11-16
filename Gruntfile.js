@@ -16,6 +16,7 @@ module.exports = function(grunt) {
             }
         },
 
+        // https://github.com/yaniswang/grunt-htmlhint
         htmlhint: {
             build: {
                 options: {
@@ -26,7 +27,7 @@ module.exports = function(grunt) {
                     'doctype-first': true,
                     'spec-char-escape': true,
                     'id-unique': true,
-                    'head-script-disabled': true,
+                    //'head-script-disabled': true,
                     'style-disabled': true
                 },
                 src: ['index.html']
@@ -67,7 +68,25 @@ module.exports = function(grunt) {
 
         // https://github.com/gruntjs/grunt-contrib-jshint
         jshint: {
-            all: ['Gruntfile.js', 'assets/js/**/*.js', '!assets/js/lib/**/*.js']
+            files: ['Gruntfile.js', 'assets/js/**/*.js'],
+            options: {
+                ignores: ["assets/js/lib/*.js"]
+            }
+        },
+
+        // https://github.com/vigetlabs/grunt-complexity
+        complexity: {
+            generic: {
+                src: ['assets/js/**/*.js', '!assets/js/lib/**/*.js'],
+                options: {
+                    jsLintXML: 'reports/complexity-report.xml', // create XML JSLint-like report
+                    checkstyleXML: 'reports/complexity-checkstyle.xml', // create checkstyle report
+                    errorsOnly: true, // show only maintainability errors
+                    cyclomatic: 7,
+                    halstead: 20,
+                    maintainability: 100
+                }
+            }
         },
 
         react: {
@@ -117,7 +136,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: ['assets/js/**/*.js'],
-                tasks: ['jshint', 'uglify']
+                tasks: ['jshint', 'complexity', 'uglify']
             },
             jsx: {
                 files: ['assets/jsx/**/*.jsx'],
@@ -132,6 +151,8 @@ module.exports = function(grunt) {
 
     grunt.registerTask("default", []);
     grunt.registerTask('buildcss',  ['compass', 'cssc', 'cssmin']);
+    grunt.registerTask('jscomplexity',  ['complexity']);
+    grunt.registerTask('hint',  ['jshint','htmlhint']);
 
     grunt.task.run('notify_hooks');
 

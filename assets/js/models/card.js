@@ -19,6 +19,18 @@ app.Card = Backbone.Model.extend({
             matched: false,
             faceUp: false
         };
+    },
+
+    matchesFace: function(card) {
+        return card.get("face") == this.get("face");
+    },
+
+    isFaceUp: function() {
+        return this.get("faceUp");
+    },
+
+    isFaceDown: function() {
+        return !this.isFaceUp();
     }
 
 });
