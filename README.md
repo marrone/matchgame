@@ -20,6 +20,17 @@ $ grunt watch
 
 TODO:
 -------
-- requirejs
 - IE9: card flip animation
 - Bonus: for getting the flipping animation to work in IE8.
+- fix ie8 excanvas brokenness
+- requirejs
+- jasmine tests
+- grunt complexity
+    "maxparams": 4,
+    "maxdepth": 4,
+    "maxstatements": 20,
+    "maxcomplexity": 7,
+    "maxlen": 100
+    https://github.com/vigetlabs/grunt-complexity
+- all cards flip over when game is over
+- fix pause bug

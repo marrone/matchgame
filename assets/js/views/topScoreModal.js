@@ -46,4 +46,4 @@ var TopScoreModalView = React.createBackboneClass({
 
 var app = app || {};
 app.Views = app.Views || {};
-app.Views.TopScoreModal = TopScoreModalView
+app.Views.TopScoreModal = TopScoreModalView;

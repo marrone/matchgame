@@ -7,6 +7,15 @@ module.exports = function(grunt) {
 
         pkg: grunt.file.readJSON("package.json"),
 
+        // https://github.com/dylang/grunt-notify
+        notify_hooks: {
+            options: {
+                enabled: true,
+                //title: "Project Name", // defaults to the name in package.json, or uses project's directory name, you can change to the name of your project
+                max_jshint_notifications: 5 // maximum number of notifications from jshint output
+            }
+        },
+
         htmlhint: {
             build: {
                 options: {
@@ -56,6 +65,11 @@ module.exports = function(grunt) {
             }
         },
 
+        // https://github.com/gruntjs/grunt-contrib-jshint
+        jshint: {
+            all: ['Gruntfile.js', 'assets/js/**/*.js', '!assets/js/lib/**/*.js']
+        },
+
         react: {
             options: {
                 extension: 'jsx',
@@ -103,7 +117,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: ['assets/js/**/*.js'],
-                tasks: ['uglify']
+                tasks: ['jshint', 'uglify']
             },
             jsx: {
                 files: ['assets/jsx/**/*.jsx'],
@@ -118,5 +132,7 @@ module.exports = function(grunt) {
 
     grunt.registerTask("default", []);
     grunt.registerTask('buildcss',  ['compass', 'cssc', 'cssmin']);
+
+    grunt.task.run('notify_hooks');
 
 };

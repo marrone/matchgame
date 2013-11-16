@@ -1,5 +1,5 @@
 {
-  "name": "SampleGrunt",
+  "name": "Funtank",
   "version": "0.1.0",
   "author": "Brandon Random",
   "private": true,
@@ -13,6 +13,8 @@
     "grunt-htmlhint": "*",
     "matchdep": "*",
     "grunt-contrib-compass": "~0.6.0",
-    "grunt-react": "~0.4.0"
+    "grunt-react": "~0.4.0",
+    "grunt-notify": "~0.2.16",
+    "grunt-contrib-jshint": "~0.7.1"
   }
 }
