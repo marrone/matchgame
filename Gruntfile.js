@@ -82,7 +82,7 @@ module.exports = function(grunt) {
                     jsLintXML: 'reports/complexity-report.xml', // create XML JSLint-like report
                     checkstyleXML: 'reports/complexity-checkstyle.xml', // create checkstyle report
                     errorsOnly: true, // show only maintainability errors
-                    cyclomatic: 7,
+                    cyclomatic: 5,
                     halstead: 20,
                     maintainability: 100
                 }
