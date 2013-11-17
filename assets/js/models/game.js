@@ -49,7 +49,7 @@ app.Game = Backbone.Model.extend({
 
     flipPendingCardsFaceDown: function() { 
         // flip cards back over and let them take another turn
-        _.each([cardA, cardB], function(card) {
+        _.each(arguments, function(card) {
             if(this.pendingFlipOver[card.cid]) {
                 clearTimeout(this.pendingFlipOver[card.cid]);
             }
@@ -62,7 +62,7 @@ app.Game = Backbone.Model.extend({
         this.trigger("card:mismatch", cardA, cardB);
         this.currentCard = null;
         if(!this.handleGameOver()) { 
-            this.flipPendingCardsFaceDown();
+            this.flipPendingCardsFaceDown(cardA, cardB);
         }
     },
 
