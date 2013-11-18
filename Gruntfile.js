@@ -34,6 +34,35 @@ module.exports = function(grunt) {
             }
         },
 
+        requirejs: {
+            compile: {
+                // https://github.com/jrburke/r.js/blob/master/build/example.build.js
+                options: {
+                    baseUrl: "assets/js",
+                    name: "lib/almond",
+                    include: ["controllers/app"],
+                    insertInclude: ["controllers/app"],
+                    mainConfigFile: "assets/js/config.js",
+                    out: "build/js/app.min.js",
+                    almond: true,
+                    optimize: "uglify2",
+                    generateSourceMaps: false,
+                    preserveLicenseComments: false,
+                    done: function(done, output) {
+                        var duplicates = require('rjs-build-analysis').duplicates(output);
+
+                        if (duplicates.length > 0) {
+                            grunt.log.subhead('Duplicates found in requirejs build:');
+                            grunt.log.warn(duplicates);
+                            done(new Error('r.js built duplicate modules, please check the excludes option.'));
+                        }
+
+                        done();
+                    }
+                }
+            }
+        },
+
         uglify: {
             build: {
                 files: {
@@ -136,7 +165,7 @@ module.exports = function(grunt) {
             },
             js: {
                 files: ['assets/js/**/*.js'],
-                tasks: ['jshint', 'complexity', 'uglify']
+                tasks: ['jshint', 'complexity', 'requirejs'/*'uglify'*/]
             },
             jsx: {
                 files: ['assets/jsx/**/*.jsx'],
