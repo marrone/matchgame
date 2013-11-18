@@ -153,6 +153,7 @@ module.exports = function(grunt) {
     grunt.registerTask('buildcss',  ['compass', 'cssc', 'cssmin']);
     grunt.registerTask('jscomplexity',  ['complexity']);
     grunt.registerTask('hint',  ['jshint','htmlhint']);
+    grunt.registerTask("jsx", ["react", "jshint"]);
 
     grunt.task.run('notify_hooks');
 
