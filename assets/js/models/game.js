@@ -1,6 +1,8 @@
-var app = app || {};
+define(
+["backbone", "underscore", "models/card", "collections/cards"],
+function(Backbone, _, Card, CardsCollection) {
 
-app.Game = Backbone.Model.extend({
+var Game = Backbone.Model.extend({
 
     defaults: function() {
         return {
@@ -110,7 +112,7 @@ app.Game = Backbone.Model.extend({
             finished: false,
             matchedAll: false,
             missCount: 0,
-            cards: new app.Cards(this.getRandomCards())
+            cards: new CardsCollection(this.getRandomCards())
         });
         this.pendingFlipOver = {};
         this.currentCard = null;
@@ -118,11 +120,11 @@ app.Game = Backbone.Model.extend({
     },
 
     getRandomCards: function(cardCount) {
-        var FACES = app.Card.prototype.FACES,
+        var FACES = Card.prototype.FACES,
             faceVals = _.keys(FACES),
             deck = _.shuffle(faceVals.concat(faceVals));
         return _.map(deck, function(face) {
-            return new app.Card({face: FACES[face]});
+            return new Card({face: FACES[face]});
         });
     },
 
@@ -179,5 +181,9 @@ app.Game = Backbone.Model.extend({
             this.set({paused: false});
         }
     }
+
+});
+
+return Game;
 
 });

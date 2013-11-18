@@ -1,4 +1,8 @@
 /** @jsx React.DOM */
+define(
+["react","react_backbone"],
+function(React) {
+
 var TopScoreModalView = React.createBackboneClass({
 
     getInitialState: function() {
@@ -44,6 +48,6 @@ var TopScoreModalView = React.createBackboneClass({
 
 });
 
-var app = app || {};
-app.Views = app.Views || {};
-app.Views.TopScoreModal = TopScoreModalView
+return TopScoreModalView;
+
+});

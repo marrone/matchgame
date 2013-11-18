@@ -1,8 +1,10 @@
-var app = app || {};
+define(
+["backbone", "backbone_localstorage", "models/playerGame"], 
+function(Backbone, BBLocalStorage, PlayerGame) {
 
-app.PlayerGames = Backbone.Collection.extend({
+var PlayerGames = Backbone.Collection.extend({
 
-    model: app.PlayerGame,
+    model: PlayerGame,
 
     localStorage: new Backbone.LocalStorage("memorygame-backbone"),
 
@@ -18,5 +20,9 @@ app.PlayerGames = Backbone.Collection.extend({
         }
         return 1;
     }
+
+});
+
+return PlayerGames;
 
 });

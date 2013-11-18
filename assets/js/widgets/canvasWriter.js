@@ -1,6 +1,6 @@
-var app = app || {};
-
-app.Widgets.CanvasWriter = function() {
+define(
+["jquery"],
+function($) {
 
 	return {
 
@@ -38,16 +38,16 @@ app.Widgets.CanvasWriter = function() {
         },
 
         getCanvasEl: function(canvasEl) {
-			canvasEl = $(canvasEl).get(0);
-			if(canvasEl && this.canvasSupported(canvasEl)) {
-                return canvasEl;
+			var el = $(canvasEl).get(0);
+			if(el && this.canvasSupported(el)) {
+                return el;
 			}
         },
 
         initCtx: function(canvasEl, opts) {
-            var canvasEl = this.getCanvasEl(canvasEl);
-            if(canvasEl) { 
-                var ctx = canvasEl.getContext('2d');
+            var el = this.getCanvasEl(canvasEl);
+            if(el) { 
+                var ctx = el.getContext('2d');
                 this.setContextStyles(ctx, opts);
                 return ctx;
             }
@@ -87,4 +87,4 @@ app.Widgets.CanvasWriter = function() {
 
 	};
 
-}();
+});

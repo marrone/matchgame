@@ -1,4 +1,8 @@
 /** @jsx React.DOM */
+define(
+["backbone","react","react_backbone"],
+function(Backbone, React) {
+
 var NavView = React.createBackboneClass({
 
     changeOptions: "change:paused change:started change:finished",
@@ -33,9 +37,8 @@ var NavView = React.createBackboneClass({
         );
     }
 
-
 });
 
-var app = app || {};
-app.Views = app.Views || {};
-app.Views.Nav = NavView;
+return NavView;
+
+});

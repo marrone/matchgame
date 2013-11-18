@@ -1,4 +1,8 @@
 /** @jsx React.DOM */
+define(
+["react","react_backbone"],
+function(React) {
+
 var CardView = React.createBackboneClass({
 
     changeOptions: "change",
@@ -25,6 +29,6 @@ var CardView = React.createBackboneClass({
 
 });
 
-var app = app || {};
-app.Views = app.Views || {};
-app.Views.Card = CardView;
+return CardView;
+
+});

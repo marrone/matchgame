@@ -1,7 +1,8 @@
-var app = app || {};
-app.Views = app.Views || {};
+define(
+["react","react_backbone"],
+function(React) {
 
-app.Views.GameStatus = React.createBackboneClass({
+var GameStatusView = React.createBackboneClass({
 
     changeOptions: "change:missCount change:matchedAll change:finished",
 
@@ -36,5 +37,9 @@ app.Views.GameStatus = React.createBackboneClass({
 
         return React.DOM.div({}, msg);
     }
+
+});
+
+return GameStatusView;
 
 });

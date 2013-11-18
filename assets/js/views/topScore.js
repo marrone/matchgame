@@ -1,7 +1,8 @@
-var app = app || {};
-app.Views = app.Views || {};
+define(
+["jquery", "backbone", "widgets/clock", "widgets/canvasWriter"],
+function($, Backbone, Clock, CanvasWriter) {
 
-app.Views.TopScore = Backbone.View.extend({
+var TopScoreView = Backbone.View.extend({
 
     template: _.template('<%- title %>'),
 
@@ -20,7 +21,7 @@ app.Views.TopScore = Backbone.View.extend({
         if(!this.model || !this.model.get("elapsedPlayTime")) {
             return "No Top Time Yet";
         }
-        var clock = new app.Widgets.Clock(this.model.get("elapsedPlayTime")),
+        var clock = new Clock(this.model.get("elapsedPlayTime")),
             name = this.shortenName(this.model.get("name"));
         return "Top: " + clock + " by " + name;
     },
@@ -39,7 +40,7 @@ app.Views.TopScore = Backbone.View.extend({
     initialize: function() {
         this.canvasSupported = false;
         if(this.$el.is("canvas")) {
-            if(app.Widgets.CanvasWriter.canvasSupported(this.el)) {
+            if(CanvasWriter.canvasSupported(this.el)) {
                 this.canvasSupported = true;
             }
             else if(this.$fallbackEl) {
@@ -66,11 +67,15 @@ app.Views.TopScore = Backbone.View.extend({
                 opts.font = this.$fallbackEl.css("fontSize") + " " + this.$fallbackEl.css("fontFamily");
                 opts.fillStyle = this.$fallbackEl.css("color");
             }
-            app.Widgets.CanvasWriter.clear(this.el);
-            app.Widgets.CanvasWriter.drawTextCentered(this.el, msg, opts);
+            CanvasWriter.clear(this.el);
+            CanvasWriter.drawTextCentered(this.el, msg, opts);
         }
         this.$el.html(this.template({title: msg}));
         return this;
     }
+
+});
+
+return TopScoreView;
 
 });

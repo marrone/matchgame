@@ -1,6 +1,8 @@
-var app = app || {};
+define(
+["backbone"],
+function(Backbone) {
 
-app.Card = Backbone.Model.extend({
+var Card = Backbone.Model.extend({
 
     FACES: {
         TOPHAT:   1,
@@ -32,5 +34,9 @@ app.Card = Backbone.Model.extend({
     isFaceDown: function() {
         return !this.isFaceUp();
     }
+
+});
+
+return Card;
 
 });

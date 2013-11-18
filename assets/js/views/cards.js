@@ -1,8 +1,11 @@
 /** @jsx React.DOM */
+define(
+["react","react_backbone", "views/card"],
+function(React, ReactBackbone, CardView) {
+
 var CardsView = React.createBackboneClass({
 
     render: function() {
-        var CardView = app.Views.Card;
         var listElements = this.getModel().map(function(card) {
             return (CardView( {model:card, card:card}));
         });
@@ -13,6 +16,6 @@ var CardsView = React.createBackboneClass({
 
 });
 
-var app = app || {};
-app.Views = app.Views || {};
-app.Views.Cards = CardsView;
+return CardsView;
+
+});

@@ -1,7 +1,8 @@
-var app = app || {};
-app.Views = app.Views || {};
+define(
+["react", "react_backbone", "widgets/clock"],
+function(React, ReactBackbone, Clock) {
 
-app.Views.Clock = React.createBackboneClass({
+var ClockView = React.createBackboneClass({
 
     changeOptions: "change:elapsedPlayTime",
 
@@ -10,11 +11,15 @@ app.Views.Clock = React.createBackboneClass({
     },
 
     formatClock: function(elapsedSeconds) {
-        return "" + (new app.Widgets.Clock(elapsedSeconds));
+        return "" + (new Clock(elapsedSeconds));
     },
 
     render: function() {
         return React.DOM.div({}, 'Time: ' + this.formatClock(this.getModel().get("elapsedPlayTime")));
     }
+
+});
+
+return ClockView;
 
 });

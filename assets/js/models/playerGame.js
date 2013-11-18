@@ -1,6 +1,8 @@
-var app = app || {};
+define(
+["backbone"],
+function(Backbone) {
 
-app.PlayerGame = Backbone.Model.extend({
+var PlayerGame = Backbone.Model.extend({
 
     defaults: function() {
         return {
@@ -8,5 +10,9 @@ app.PlayerGame = Backbone.Model.extend({
             elapsedPlayTime: 0
         };
     }
+
+});
+
+return PlayerGame;
 
 });

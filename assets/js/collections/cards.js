@@ -1,8 +1,10 @@
-var app = app || {};
+define(
+["backbone", "models/card"],
+function(Backbone, Card) {
 
-app.Cards = Backbone.Collection.extend({
+var Cards = Backbone.Collection.extend({
 
-    model: app.Card,
+    model: Card,
 
     // filter down the list of cards to those that have been matched
     matched: function() {
@@ -15,5 +17,9 @@ app.Cards = Backbone.Collection.extend({
     unmatched: function() {
         return this.without.apply(this, this.matched());
     }
+
+});
+
+return Cards;
 
 });

@@ -1,3 +1,18 @@
+(function (root, factory) {
+   if (typeof exports === 'object' && typeof require === 'function') {
+     module.exports = factory(require("react"));
+   } else if (typeof define === "function" && define.amd) {
+      // AMD. Register as an anonymous module.
+      define(["react"], function(React) {
+        // Use global variables if the locals are undefined.
+        return factory(React || root.React);
+      });
+   } else {
+      // RequireJS isn't being used. Assume React is loaded in <script> tags
+      factory(React);
+   }
+}(this, function(React) {
+
 React.BackboneMixin = {
     _subscribe: function(model) {
         if (!model) {
@@ -49,3 +64,5 @@ React.createBackboneClass = function(spec) {
     };
     return React.createClass(spec);
 };
+
+}));
