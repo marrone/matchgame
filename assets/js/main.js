@@ -34,3 +34,7 @@ require.config({
         }
     }
 });
+
+require(["controllers/app"], function() { 
+    console.log("app initiated"); 
+});

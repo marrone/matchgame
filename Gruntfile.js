@@ -40,9 +40,9 @@ module.exports = function(grunt) {
                 options: {
                     baseUrl: "assets/js",
                     name: "lib/almond",
+                    mainConfigFile: "assets/js/main.js",
                     include: ["controllers/app"],
                     insertInclude: ["controllers/app"],
-                    mainConfigFile: "assets/js/config.js",
                     out: "build/js/app.min.js",
                     almond: true,
                     optimize: "uglify2",
