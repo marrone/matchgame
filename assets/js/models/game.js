@@ -19,12 +19,24 @@ var Game = Backbone.Model.extend({
         };
     },
 
-    flipOver: function(card) {
+    flipDown: function(card) {
         card.set("faceUp", false);
         if(this.pendingFlipOver[card.cid]) {
             clearTimeout(this.pendingFlipOver[card.cid]);
             delete this.pendingFlipOver[card.cid];
         }
+    },
+
+    flipUp: function(card) {
+        card.set("faceUp", true);
+        if(this.pendingFlipOver[card.cid]) {
+            clearTimeout(this.pendingFlipOver[card.cid]);
+            delete this.pendingFlipOver[card.cid];
+        }
+    },
+
+    flipAllUp: function() {
+        this.get("cards").each(this.flipUp, this);
     },
 
     handleMatch: function(cardA, cardB) { 
@@ -44,6 +56,7 @@ var Game = Backbone.Model.extend({
             // game over
             this.clearClockInterval();
             this.set({finished: true, endDate: (new Date()).getTime()});
+            this.flipAllUp();
             return true;
         }
         return false;
@@ -55,7 +68,7 @@ var Game = Backbone.Model.extend({
             if(this.pendingFlipOver[card.cid]) {
                 clearTimeout(this.pendingFlipOver[card.cid]);
             }
-            this.pendingFlipOver[card.cid] = setTimeout(_.bind(this.flipOver, this, card), 1000);
+            this.pendingFlipOver[card.cid] = setTimeout(_.bind(this.flipDown, this, card), 1000);
         }, this);
     },
 
