@@ -24,5 +24,3 @@ TODO:
 - Bonus: for getting the flipping animation to work in IE8.
 - fix ie8 excanvas brokenness
 - jasmine tests
-- all cards flip over when game is over
-- fix pause bug

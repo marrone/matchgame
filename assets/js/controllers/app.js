@@ -42,7 +42,7 @@ function(
             clock: new ClockView({model: game}),
             status: new GameStatusView({model: game}),
             nav: new NavView({model: game}),
-            cards: new CardsView({model: game.get("cards")}),
+            cards: new CardsView({model: game}),
             topScoreModal: new TopScoreModalView({model: null}),
             // this one just a bit different for sake of showing the canvas usage
             topScore: new TopScoreView({el: $("#game-best"), model: playerGames.at(0)})

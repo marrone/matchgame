@@ -9,6 +9,9 @@ var CardView = React.createBackboneClass({
 
     onClick: function(e) {
         e.preventDefault();
+        if(!this.props.game.hasStarted() || this.props.game.isPaused()) {
+            return;
+        }
         if(!this.getModel().get("matched") && !this.getModel().get("faceUp")) { 
             this.getModel().set("faceUp", true);
         }
