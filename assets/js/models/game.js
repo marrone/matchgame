@@ -133,7 +133,7 @@ var Game = Backbone.Model.extend({
     },
 
     getRandomCards: function(cardCount) {
-        var FACES = Card.prototype.FACES,
+        var FACES = Card.FACES,
             faceVals = _.keys(FACES),
             deck = _.shuffle(faceVals.concat(faceVals));
         return _.map(deck, function(face) {
