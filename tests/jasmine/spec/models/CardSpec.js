@@ -45,6 +45,29 @@ return describe("Tests for Card Model", function() {
         expect(errorCallback.calls.count()).toEqual(1);
     });
 
+    it("Can only contain a boolean value for faceUp/matched and will trigger invalid event on failed validate.", function() {
+        var card = new Card({face: Card.FACES.REDJAY});
+        var errorCallback = jasmine.createSpy("-invalid event callback-");
+        card.on("invalid", errorCallback);
+
+        card.set({faceUp: true}, {validate: true});
+        expect(errorCallback).not.toHaveBeenCalled();
+
+        card.set({faceUp: 1}, {validate: true});
+        expect(errorCallback).toHaveBeenCalled();
+        expect(errorCallback.calls.count()).toEqual(1);
+        expect(errorCallback.calls.mostRecent()).toBeDefined();
+        expect(errorCallback.calls.mostRecent().args[0]).toBe(card);
+        expect(errorCallback.calls.mostRecent().args[1]).toBe("Card.faceUp must be a boolean value.");
+
+        card.set({matched: false}, {validate: true});
+        expect(errorCallback.calls.count()).toEqual(1);
+        card.set({matched: "foo"}, {validate: true});
+        expect(errorCallback.calls.count()).toEqual(2);
+        expect(errorCallback.calls.mostRecent().args[0]).toBe(card);
+        expect(errorCallback.calls.mostRecent().args[1]).toBe("Card.matched must be a boolean value.");
+    });
+
     it("will not match a different face", function() {
         var card = new Card({face: Card.FACES.TOPHAT});
         var card2 = new Card({face: Card.FACES.SHELLY})

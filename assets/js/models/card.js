@@ -16,6 +16,14 @@ var Card = Backbone.Model.extend({
         if(attrs.hasOwnProperty("face") && !_.contains(_.values(Card.FACES), attrs.face)) {
             return "Card.face must be a valid FACE constant";
         }
+        var errs = _.filter(_.map(["matched","faceUp"], function(attr) {
+            if(attrs.hasOwnProperty(attr) && !_.isBoolean(attrs[attr])) {
+                return "Card." + attr + " must be a boolean value.";
+            }
+        }), function(err) { return !!err; });
+        if(errs) {
+            return errs[0];
+        }
     },
 
     matchesFace: function(card) {
