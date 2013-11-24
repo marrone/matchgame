@@ -21,6 +21,30 @@ return describe("Tests for Card Model", function() {
         expect(Card.FACES).toBeDefined();
     });
 
+    it("Can only contain a face value from those pre-defined and will trigger an invalid event on failed validation.", function() {
+
+        var card = new Card();
+
+        var errorCallback = jasmine.createSpy("-invalid event callback-");
+
+        card.on("invalid", errorCallback);
+
+        card.set({face: "abc"}, {validate: true});
+
+        var errCall = errorCallback.calls.mostRecent();
+        expect(errorCallback).toHaveBeenCalled();
+        expect(errorCallback.calls.count()).toEqual(1);
+        expect(errCall).toBeDefined();
+        expect(errCall.args).toBeDefined();
+        if(errCall) { 
+            expect(errCall.args[0]).toBe(card);
+            expect(errCall.args[1]).toBe("Card.face must be a valid FACE constant");
+        }
+
+        card.set({face: Card.FACES.BEARDO}, {validate:true});
+        expect(errorCallback.calls.count()).toEqual(1);
+    });
+
     it("will not match a different face", function() {
         var card = new Card({face: Card.FACES.TOPHAT});
         var card2 = new Card({face: Card.FACES.SHELLY})

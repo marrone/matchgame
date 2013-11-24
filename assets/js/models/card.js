@@ -1,6 +1,6 @@
 define(
-["backbone"],
-function(Backbone) {
+["backbone", "underscore"],
+function(Backbone, _) {
 
 var Card = Backbone.Model.extend({
 
@@ -10,6 +10,12 @@ var Card = Backbone.Model.extend({
             matched: false,
             faceUp: false
         };
+    },
+
+    validate: function(attrs) {
+        if(attrs.hasOwnProperty("face") && !_.contains(_.values(Card.FACES), attrs.face)) {
+            return "Card.face must be a valid FACE constant";
+        }
     },
 
     matchesFace: function(card) {
