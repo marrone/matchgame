@@ -23,5 +23,6 @@ TODO:
 - IE9: card flip animation
 - Bonus: for getting the flipping animation to work in IE8.
 - fix ie8 excanvas brokenness
+- grunt documentation, http://tech.pro/tutorial/1729/easy-javascript-documentation-with-yuidocs-and-gruntjs
 - sinon 
 - jasmine tests
