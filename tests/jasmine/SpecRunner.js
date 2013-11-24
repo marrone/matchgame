@@ -57,7 +57,8 @@ require(["underscore","jquery","jasmine_boot"], function(_, $, jasmineBoot) {
     console.log("tests initiated"); 
 
     var specs = [
-        "spec/models/CardSpec"
+        "spec/models/CardSpec",
+        "spec/collections/CardsSpec"
     ];
 
     require(specs, function() {
