@@ -23,4 +23,5 @@ TODO:
 - IE9: card flip animation
 - Bonus: for getting the flipping animation to work in IE8.
 - fix ie8 excanvas brokenness
+- sinon 
 - jasmine tests
